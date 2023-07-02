@@ -298,7 +298,8 @@ class InsureeService:
 class FamilyService:
     def __init__(self, user):
         self.user = user
-
+        
+    @register_service_signal('family_service.create_or_update')
     def create_or_update(self, data):
         head_insuree_data = data.pop('head_insuree')
         head_insuree_data["head"] = True
